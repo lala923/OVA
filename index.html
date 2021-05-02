@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>Función Lineal</title>
+    <!-- Bootstrap core CSS -->
+<link href="assets/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    
+	
+	  <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+	 <link href="jumbotron.css" rel="stylesheet">
+	 
+	 
+  </head>
+  
+  <body>
+        <nav class="navbar navbar-expand navbar-dark bg-primary">
+		<div class="container-fluid">
+        <a class="navbar-brand" href="#"> OVA Función lineal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+        </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="jumbotron/creditos.html">Créditos</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<main role="main">
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container" >
+		<br>
+        <center><h1 class="display-4">OVA Función lineal</h1></center>
+        <p align="center"> 
+	<!--This draws the Canvas on the webpage -->
+      <canvas id="mycanvas"></canvas> 
+    </p> 
+      <p>Esperamos que este Objeto Virtual de Aprendizaje fundamentado en la enseñanza 
+      para la comprensión te sea útil en el estudio de la función lineal. </p>      
+  </div>
+</main>
+
+ <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-6">
+          <h2> Principiante</h2>
+      <center> <img src="jumbotron/professions-and-jobs.png" width="100px">
+        <p> Si es tu primera vez en el sitio haz clic aquí. En este lugar encontrarás un video que te explicará el uso de la plataforma.</p>
+        <a class="btn btn-primary" href="jumbotron/principiante.html" role="button"> IR&raquo;</a></center>
+      </div>
+      <div class="col-md-6">
+        <h2>Usuario recurrente</h2>
+      <center> <img src="jumbotron/worker.png" width="100px">
+          <p>En esta dirección puedes encontrar las unidades temáticas que te ayudarán en tu proceso de aprendizaje.<p>
+              <a href="jumbotron/rutadeaprendizaje.html" class="btn btn-primary"  role="button"> Ruta de aprendizaje  &raquo;</a></center>
+      </div>
+    </div>
+
+    <hr>
+
+  </div> <!-- /container -->
+
+<script src="jumbotron/processing.min.js"></script> 
+<script src="assets/dist/js/bootstrap.bundle.min.js"></script> 
+	
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+     var ancho= 200;
+     var alto=200;
+         size(ancho, alto); 
+         frameRate(30);
+        /*************
+*OBJECT TYPES
+**************/
+
+/******************
+*Button Object Type
+*******************/
+var xPos = 0;
+var yPos = alto;
+
+    draw = function() {
+        
+        background(115, 134, 255);
+        fill(240, 240, 240);
+        rect(xPos, yPos, 10, 10);
+
+        fill(240, 240, 240);
+        rect(ancho-xPos,alto- yPos, 10, 10);
+
+        xPos++;
+        yPos--;
+        if(xPos===ancho){
+            xPos=0;
+        }
+        if(yPos===0){
+            yPos=alto;
+        }
+         stroke(0, 0, 0);
+    };
+
+    }};
+    var canvas = document.getElementById("mycanvas"); 
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script></body>
+</html>

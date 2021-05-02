@@ -1,0 +1,19 @@
+'Escribe las posiciones de las palabras que se deben completar, ejemplo para LAS AVES TIENE ALAS la palabra AVES está en la posición dos'
+2
+4
+9
+12
+2
+4
+9
+12
+2
+6
+10
+2
+4
+9
+2
+4
+7
+10

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes,minimal-ui">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <title>Libro Relación</title>
+
+  <!-- configuración del libro -->
+  <script>
+  window.book_config = {
+    // parámetro que indica si los capítulos, secciones y figura se auto numeran
+    // para que los capítulos se auto numeren deben utilizar la etiqueta <h1>
+    // para que las secciones se auto numeren deben utilizar la etiqueta <h2>
+    auto_numerate_sections_and_figures: true, 
+  }
+  </script>
+
+  <!-- núcleo del libro interactivo -->
+  <link rel="stylesheet" href="../../css/style.css" type="text/css">
+  <script type="text/javascript" src="../../js/book.js" charset="utf-8"></script>
+  
+  <!-- personalización del usuario -->
+  <link rel="stylesheet" href="extra/fonts.css" type="text/css">
+  <link rel="stylesheet" href="extra/style.css" type="text/css">
+
+  <!-- inclusión de la biblioteca KaTex -->
+  <link rel="stylesheet" type="text/css" href="extra/katex/katex.min.css"/>
+  <script src="extra/katex/katex.min.js"></script>
+  <script src="extra/katex/auto-render.min.js" ></script>
+
+  <!-- Opcional en caso de requerir formulas químicas -->
+  <script src="extra/katex/mhchem.min.js"></script>
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}, {left: "\\[", right: "\\]", display: true}, {left: "\\(", right: "\\)", display: false} ]
+    });
+  });
+  </script>
+</head>
+
+<body>
+  <div id="book_loader_container"><div id="book_loader"></div></div>
+
+  <div id="book_container">
+    <div id="btn_back_page"></div>
+    <div id="btn_next_page"></div>
+    <button id="go_to_table_of_content"></button>
+    
+    <button id="btn_config"></button>
+    <div id="config_options">
+      <div id="dark_light_mode"></div>
+    </div>
+
+    <!-- si este elemento no esta presente, el botón de la tabla de contenido lleva a la primera página con un elemento class="toc_link" -->
+    <div id="table_of_content"></div>
+
+    <div id="pages_container">
+      <!--  -->
+      <div class="page" style="background-color:transparent;">
+      </div>
+
+      <!--  -->
+      <div class="page invertcolor" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada.svg);">
+        <div class="cover_title">Relación</div>
+
+        <div class="cover_subtitle">Libro interactivo</div>
+      </div>
+
+      <!--  -->
+      <div class="page" style="display:flex; align-items:center; justify-content:center;">
+        <a style="width:50%" target="_blank" href="http://descartes.matem.unam.mx/"><img src="images/general/logo_descartes.svg" width="100%"></a>
+      </div>
+
+      <!--  -->
+      <!-- init-page-num="true" es un parámetro que indica que a partir de esta página comienza la numeración -->
+      <!-- inicialmente los números de las páginas se numeran con numerales romanos -->
+      <!-- num="" es un parámetro que indica que esta página no lleva numeración visible -->
+      <!--  -->
+      <div class="page" style="text-align:center; font-size:120%;" init-page-num="true" num="">
+       
+      </div>
+
+      <!--  -->
+      <div class="page" num="">
+        <p>
+          Título de la obra:
+          <br> 
+          Relación
+        </p>
+        <br>
+
+        <p>
+          Autor:
+          <br> 
+          Laura Reinoso
+        </p>
+        <br><br>
+
+        <p>
+          Código JavaScript para el libro: <a href="https://github.com/jlongi/libro_interactivo" target="_blank">Joel Espinosa Longi</a>, <a href="https://www.matem.unam.mx/" target="_blank">IMATE</a>, UNAM.
+          <br> 
+          Recursos interactivos: <a href="http://descartes.matem.unam.mx/" target="_blank">DescartesJS</a>
+          <br> 
+          Fuentes: <a href="https://fonts.google.com/specimen/Lato" target="_blank">Lato</a> y <a href="https://fonts.google.com/specimen/Ubuntu+Mono" target="_blank">UbuntuMono</a>
+          <br>
+          Fórmulas matemáticas: <a href="https://katex.org/" target="_blank">$\KaTeX$</a>
+        </p>
+        <br>
+
+        
+        <br><br>
+
+        <p>
+          <p>LICENCIA</p>
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank"><img src="images/general/by-nc-sa.svg" style="height:1.75em; margin-right:0.75em;"></a>
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank">Creative Commons Attribution License 4.0</a>.
+        </p>
+      </div>
+
+      <!--  -->
+      <div class="page">
+        <h2>Tabla de contenido</h2>
+
+       <!-- con esto se agrega una entrada en la tabla de contenido,
+        href="#prefacio" indica una referencia a una elemento html con 
+        el parámetro id="prefacio", automáticamente se busca está referencia
+        y se agrega el título correspondiente y la página donde se encuentra -->
+          
+     
+
+        <div class="toc_link" href="#capitulo_1"></div>
+
+        <div class="toc_link" href="#capitulo_2"></div>
+        <div class="toc_link" href="#diagramaSagital"></div>
+		<div class="toc_link" href="#planocartesiano"></div>
+		<div class="toc_link" href="#tabladedatos"></div>
+		<div class="toc_link" href="#notacionconjunto"></div>
+		<div class="toc_link" href="#formula"></div>
+	
+		
+		<div class="toc_link" href="#capitulo_3"></div>
+		
+      </div>
+  
+      <!-- Una página en blanco y sin numeración visible -->
+      <!--  -->
+      <div class="page" num=""></div>
+
+
+
+      <!--  -->
+      <!-- num-type-arabic="true" es un parámetro que indica que a partir de esta página la numeración utilizara numerales arábigos -->
+      <!--  -->
+     
+
+      <!--  -->
+      <!-- Un nuevo capitulo -->
+      <!--  -->
+      <div class="page invertcolor" num="" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada_capitulos.svg);">
+        <div class="chap_text">Capítulo I</div>
+        <h1 class="chap_name" id="capitulo_1">Definición de Relación</h1>
+      </div>
+ 
+  
+
+      <!--  -->
+      <div class="page">
+			<h1>1. Definición de Relación<br>
+			</h1>
+			<p>El verbo RELACIONAR equivale a ASOCIAR o HACER CORRESPONDER los 
+			elementos de un conjunto con los de otro conjunto. Entonces la palabra
+			relación significa asociación o correspondencia.</p>			
+			<p >Dependiendo de la naturaleza de los conjuntos podemos
+			representarlos de muchas formas como lo es el diagrama sagital,
+			con tablas de datos, en el plano cartesiano entre otras.  </p>
+			<p>En este libro estudiaremos las formas en las que se 
+			representan las relaciones e identificaremos en ellos el 
+			concepto de conjunto de partida, conjunto de llegada, Dominio, Rango,
+			imagen y preimagen.
+			</p> 
+			<p>A continuación tiene un objeto interactivo en el que debe completar las frases
+			que tienen que ver con el concepto de Relación. Haga clic en la imagen para abrir el recurso. 
+			</p> 
+			
+			<p><img class="image_link" onclick="openInteractive('interactivos/Completa_frases2Envio-JS/index.html', '790', '530')" src="interactivos/1.JPG" width="75%"></p>
+			</p>
+			
+      </div>
+
+        
+     
+
+      <div class="page invertcolor" num="" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada_capitulos.svg);">
+        <div class="chap_text">Capítulo II</div>
+        <h1 class="chap_name" id="capitulo_2">Representación de las relaciones</h1>
+      </div>
+
+      <!--   -->
+      <div class="page">
+        <h2 id="diagramaSagital">Diagrama Sagital</h2>
+		<p>Se usa cuando los conjuntos que vas a representar son finitos.</p>
+		<p>Para realizar un diagrama sagital puedes utilizar los pasos dados a continuación:</p>
+		<p> <code>Paso 1: </code> Dibujar dos óvalos, estos representarán los conjuntos relacionados.
+		Por convención el conjunto de la izquierda es el conjunto de partida y el conjunto de la derecha es el conjunto de llegada.</p>
+		<p><code>Paso 2:</code> Se escriben los elementos de cada conjunto.</p>
+		<p><code>Paso 3:</code> Se identifica la relación que se estable entre un conjunto y el otro.</p>
+		<p><code>Paso 4:</code> Se dibujan flechas, saliendo de los elementos del conjunto de partida y
+		llegando a uno de los elementos del conjunto de llegada.</p>
+		
+		<b>Ejemplo 1:</b>
+		<p>
+			En una fiesta hay cuatro personas: Juan, Ximena, María y Jorge. Se sabe que Juan es amigo de María y que Ximena es amiga de María y de Jorge. ¿Cómo se puede representar la amistad de estas personas en un diagrama Sagital?
+		</p>
+		
+			
+      </div>
+
+      
+      <div class="page">
+       <p>Haga clic en la imagen para observar la representación de este conjunto mediante un diagrama sagital. </p> 
+			
+			<p><img class="image_link" onclick="openInteractive('interactivos/ej1.html', '790', '530')" src="interactivos/2.JPG" width="50%"></p>
+			</p>
+		<b>Ejemplo 2:</b>
+		<p>
+		Se tienen 2 conjuntos llamados $A$ y $B$.
+		Represente la relación de A en B. Si se tiene que: $A=\{-1,0,4\}$ , $B=\{-1,0,1,2\}$ y la relación es que el elemento de A al cuadrado es igual al elemento de B.
+		</p>	
+			<p>Haga clic en la imagen para observar la representación de este conjunto mediante un diagrama sagital. </p> 
+			
+			<p><img class="image_link" onclick="openInteractive('interactivos/ej2.html', '790', '530')" src="interactivos/2.JPG" width="50%"></p>
+			</p>
+			
+      </div>
+	      <div class="page">
+			<b>Ejemplo 3:</b>
+			
+			<p>
+			Si $C=\{-4,-3,-2,-1,0,1\}$ y $D=\{-1,0,1,2,3,4\}$ y $R=\{(x,y)  / x ∈ C ∧ y ∈ D ∧ y=|x|\}$. Represente la relación.</p>
+			<p>Haga clic en la imagen para observar la representación de este conjunto mediante un diagrama sagital. </p> 
+			<p><img class="image_link" onclick="openInteractive('interactivos/ej3.html', '790', '530')" src="interactivos/2.JPG" width="50%"></p>
+			</p>
+			<h2 id="planocartesiano">Plano cartesiano</h2>
+			
+				<p>Las gráficas en el plano cartesiano son el método favorito para representar relaciones
+				 entre dos conjuntos infinitos de números reales, aunque se puede utilizar para todo tipo
+				 de conjuntos.
+				</p>
+				<p>
+				Si ambos conjuntos son no numéricos, se dibuja el primer cuadrante del plano cartesiano. 
+				Las marcas del semieje $x$, tienen los elementos del conjunto de partida, y las 
+				marcas del semieje $y$, contiene los elementos del conjunto de llegada.
+				</p>
+				
+      </div>
+	  <div class="page">
+				<p>
+				Si ambos conjuntos son numéricos, no es necesario que los ejes estén marcados con todos 
+				los elementos relacionados, puesto que se puede aproximar con facilidad la posición de cualquier pareja de coordenadas.  
+				</p>
+				<p>
+				Finalmente, independientemente del tipo de conjuntos, se ubica en el plano los puntos de coordenadas $(x,y)$ 
+				tales que $x$ pertenezca al conjunto de Partida, 
+				y pertenezca al conjunto de llegada y $x$ se relacione con $y$. 
+				</p>
+				
+				<b>Ejemplo 1:</b>
+				<p>En una fiesta hay cuatro personas: Juan, Ximena, María y Jorge. Se sabe que Juan es amigo de María y que Ximena es amiga de María y de Jorge. ¿Cómo se puede representar la amistad de estas personas en el plano cartesiano?
+				</p>
+				<p>Haga clic en la imagen para observar la representación de este conjunto en el plano cartesiano. </p> 
+				<p><img class="image_link" onclick="openInteractive('interactivos/ej1plano.html', '790', '530')" src="interactivos/3.JPG" width="50%"></p>
+				</p>
+				
+      </div>
+	    <div class="page">
+		<b>Ejemplo 2:			</b>
+				<p>Se tienen 2 conjuntos llamados A y B.
+				Represente la relación de A en B. Si A={-1,0,4} , B={-1,0,1,2} y la relación es que el elemento de A al cuadrado es igual al elemento de B.
+				</p>
+				<p>Haga clic en la imagen para observar la representación de este conjunto en el plano cartesiano. </p> 
+				
+				<p><img class="image_link" onclick="openInteractive('interactivos/ej2plano.html', '790', '530')" src="interactivos/4.JPG" width="50%"></p>
+				</p>
+				
+		<b>Ejemplo 3:				</b>
+				
+				<p>Si $C=\{-4,-3,-2,-1,0,1\}$ y $D={-1,0,1,2,3,4}$ y $R=\{(x,y)  / x∈D ∧ y∈D ∧y=|x|\}.$ Represente la relación.
+				</p>
+					
+		</div>
+ <div class="page">
+				<p>Haga clic en la imagen para observar la representación de este conjunto en el plano cartesiano. </p> 
+				
+				<p><img class="image_link" onclick="openInteractive('interactivos/ej3plano.html', '790', '530')" src="interactivos/5.JPG" width="50%"></p>
+				</p>	
+				
+				<div class="note">  
+				Nota
+				<p>Cuando el conjunto de partida y de llegada, son los números reales, se analiza la fórmula de la función.</p>
+				<p>Si es conocida, se busca como graficar esa función en especial.</p>
+				<p>Si es desconocida se siguen los siguientes pasos:</p>
+				<p><code>Paso 1: </code>Se tabulan algunos puntos que cumplan con la condición dada.</p>
+				<p><code>Paso 2: </code>Se grafican los puntos de la tabla en el plano cartesiano.</p>
+				<p><code>Paso 3: </code>Se unen los puntos de la mejor manera que se pueda.</p>
+				<p>Dado que nos es imposible analizar todas las relaciones con sus formas características, 
+				en este libro se graficará con el segundo método.</p>
+				</div>
+</div>
+<div class="page">
+		<b>Ejemplo 4:</b>		
+		<p> $R=\{(x,y)  / x,y ∈ R ∧ x²+y²=1\}$. Represente la relación.
+		Antes de comenzar, es importante aclarar que se buscan todas las parejas de puntos tales que el cuadrado 
+		de la primera coordenada más el cuadrado de la segunda sea igual a uno. Esto se cumple en el círculo 
+		que tiene centro en el punto (0,0) y tiene un radio de una unidad.
+		</p>
+		<p>Haga clic en la imagen para observar la representación de este conjunto en el plano cartesiano. </p> 
+		<p><img class="image_link" onclick="openInteractive('interactivos/ej4plano.html', '790', '530')" src="interactivos/6.JPG" width="75%"></p>
+				</p>	
+		
+				
+				
+				
+</div>
+<div class="page">
+		<b>Ejemplo 5</b>
+		<p>
+		$R=/{(x,y)  / x,y ∈ R ∧ y=2x/}$. Represente la relación.
+		Antes de comenzar, es importante aclarar que se buscan todas las parejas de puntos tales que el elemento del segundo conjunto sea igual al doble del elemento del primer conjunto.
+		.</p>
+		<p>Haga clic en la imagen para observar la representación de este conjunto en el plano cartesiano. </p> 
+		<p><img class="image_link" onclick="openInteractive('interactivos/ej5plano.html', '790', '530')" src="interactivos/6.JPG" width="50%"></p>
+				</p>
+</div>
+<div class="page">
+		<h2 id="tabladedatos">Tabla de datos</h2>
+		<p>Se usa frecuentemente para representar todo tipo de relaciones, tanto el producto de estudios estadísticos, como los resultados de un laboratorio o simplemente para ordenar parejas de datos.
+		También se usa porque es más fácil de elaborar y de entender que un diagrama sagital.
+		</p>
+		<h3>¿Cómo se realiza una tabla de datos?</h3>
+		<p>
+		<code>Paso 1: </code>Identificar la variable independiente y la variable dependiente. Esto ayudará a identificar la columna de la izquierda y la columna de la derecha, que representan los conjuntos de partida y de llegada en ese mismo orden.
+		</p>
+		<p><code>Paso 2: </code>Se marca la primera fila de ambas columnas con el nombre del conjunto que le corresponde.
+		</p>
+		<p><code>Paso 3: </code>Se llenan las filas con los datos del problema.
+		</p>
+		<b>Ejemplo 1:</b>
+		<p>En una fiesta hay cuatro personas: Juan, Ximena, María y Jorge. Se sabe que Juan es amigo de María y que Ximena es amiga de María y de Jorge. ¿Cómo se puede representar la amistad de estas personas?
+		</p>
+</div>
+<div class="page">
+		<p>Haga clic en la imagen para observar la representación de este conjunto mediante la utilización de una tabla de datos. </p> 
+		<p><img class="image_link" onclick="openInteractive('interactivos/ej1tabla.html', '790', '530')" src="interactivos/7.JPG" width="40%"></p>
+		</p>
+				
+		<b>Ejemplo 2:</b>
+		<p>Se tienen 2 conjuntos llamados A y B.Represente la relación de A en B. Si A={-1,0,4} , B={-1,0,1,2} y la relación es que el elemento de A al cuadrado es igual al elemento de B.
+		</p><p>Haga clic en la imagen para observar la representación de este conjunto mediante la utilización de una tabla de datos. </p> 
+		<p><img class="image_link" onclick="openInteractive('interactivos/ej2tabla.html', '790', '530')" src="interactivos/7.JPG" width="40%"></p>
+	    </p>
+
+</div>
+<div class="page">
+		<b>Ejemplo 3:</b>
+		<p>Si $C=\{-4,-3,-2,-1,0,1\}$ y $D=\{-1,0,1,2,3,4\}$ y $R=\{(x,y) / x∈D ∧y∈D ∧y=|x|\}$. Represente la relación.
+		</p><p>Haga clic en la imagen para observar la representación de este conjunto mediante la utilización de una tabla de datos. </p> 
+		<p><img class="image_link" onclick="openInteractive('interactivos/ej3tabla.html', '790', '530')" src="interactivos/7.JPG" width="30%"></p>
+	    </p>
+		<b>Ejemplo 4:</b>
+		<p> $R=\{(x,y)  / x,y ∈ R ∧ x²+y²=1\}$. Represente la relación.
+		Antes de comenzar, es importante aclarar que se buscan todas las parejas de puntos tales que el cuadrado 
+		de la primera coordenada más el cuadrado de la segunda sea igual a uno. Esto se cumple en el círculo 
+		que tiene centro en el punto (0,0) y tiene un radio de una unidad.
+		</p>
+		<p>Haga clic en la imagen para observar la representación de este conjunto mediante la utilización de una tabla de datos. </p> 
+		<p><img class="image_link" onclick="openInteractive('interactivos/ej4tabla.html', '790', '530')" src="interactivos/7.JPG" width="30%"></p>
+	    </p>
+</div>
+<div class="page">
+		<b>Ejemplo 5:</b>
+		<p>
+		$R=\{(x,y)  / x,y ∈ R ∧ y=2x\}$. Represente la relación.
+		Antes de comenzar, es importante aclarar que se buscan todas las parejas de puntos tales que el elemento del segundo conjunto sea igual al doble del elemento del primer conjunto.
+		.
+		</p>
+		<p>Haga clic en la imagen para observar la representación de este conjunto mediante la utilización de una tabla de datos. </p> 
+		<p><img class="image_link" onclick="openInteractive('interactivos/ej5tabla.html', '790', '530')" src="interactivos/7.JPG" width="50%"></p>
+	    </p>
+		<h2 id="notacionconjunto">Notación de conjunto</h2>
+		<p>La notación de conjunto es la manera más compleja de representar una relación. Si los conjuntos 
+		son finitos se puede usar la notación de conjunto por extensión o por comprensión.</p>
+		<p>Si los conjuntos son infinitos, la notación por compresión se hace más conveniente que la notación por extensión.
+		</p>
+</div>
+<div class="page">
+		<h3>Notación por extensión:</h3>
+		<p>Se nombra al conjunto con una letra Mayúscula y se escriben entre llaves las parejas de elementos que pertenecen a la relación</p>
+			<p><b>Ejemplo 1</b></p>
+			<p>En una fiesta hay cuatro personas: Juan, Ximena, María y Jorge.
+			 Se sabe que Juan es amigo de María y que Ximena es amiga de María 
+			 y de Jorge. ¿Cómo se puede representar la amistad de estas personas como un conjunto en extensión?</p>
+			<p>$R=\{(Juan,Maria),(Maria,Juan),(Ximena,María),$
+			$(María,Ximena),(Ximena,Jorge),(Jorge,Ximena)\}$</p>
+			<p><b>Ejemplo 2</b></p>
+			<p>Se tienen 2 conjuntos llamados $A$ y $B$.
+			Represente la relación de $A$ en $B$. Si $A=\{-1,0,4\}$ , $B=\{-1,0,1,2\}$ y la relación es que el elemento de A al cuadrado es igual al elemento de B.
+			</p>
+			<p>$R=\{(-1,1),(0,0)\}$</p>
+			<h3>Notación por comprensión:</h3>
+			<p>Se escribe por lo general de la siguiente forma</p>
+			<p>$R=\{(x,y) / x ∈ A ∧ y ∈ B ∧ condiciónC \}$</p>
+</div>
+<div class="page">
+		
+		<p>Se lee como: La relación está compuesta de todas las parejas ordenadas de la forma $(x,y)$ 
+		tales que $x$ pertenecen al conjunto $A$, y $y$ pertenece al conjunto $B$, y se cumple la $condición$C.</p>
+		<b>Ejemplo 1</b>
+		<p>Se tienen 2 conjuntos llamados $A$ y $B$.</p>
+		<p>Represente la relación de $A$ en $B$. Si $A=\{-1,0,4\}$ , $B=\{-1,0,1,2\}$ y
+		la relación es que el elemento de $A$ al cuadrado es igual al elemento de $B$.
+		</p>
+		<p>$R=\{(x,y) | x ∈ A ∧ y ∈ B ∧ y=x²\}$
+		</p>
+		<b>Ejemplo 2</b>
+		<p>En una fiesta hay cuatro personas: Juan, Ximena, María y Jorge. Se sabe que Juan es amigo 
+		de María y que Ximena es amiga de María y de Jorge. ¿Cómo se puede representar la amistad 
+		de estas personas como un conjunto por comprensión?</p>
+		<p>Se enuncia el conjunto de las personas :$P$</p>
+		<p>$P={Juan,María,Ximena,Jorge}$</p>
+		<p>La relación quedaría como:</p>
+		<p>$R=\{(x,y)| x,y ∈ P ∧ x $ es amigo de $y\}$
+		</p>
+</div>
+<div class="page">
+	<h2 id="formula">Fórmula</h2>
+	<p>Cuando se conoce el conjunto de partida y de llegada.
+	 También se puede usar una fórmula o una regla de correspondencia, para denotar la relación.
+	</p>
+	<p>Cuando se conoce el conjunto de partida y de llegada. También se puede usar una fórmula o una regla de correspondencia, para denotar la relación.</p><br>
+	<b>Ejemplos</b>
+	<p>La Relación $y=-1x$ en $R$, significa lo mismo que </p><p>$R=\{ (x,y) | x,y ∈ R ∧ y=-1x\}$</p>
+	<p>La Relación $y²+x=-1$  en $R$, significa lo mismo que </p><p>$R=\{ (x,y) | x,y ∈ R ∧ y²+x=-1\}$</p>
+	</p>
+
+</div>
+
+<div class="page invertcolor" num="" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada_capitulos.svg);">
+        <div class="chap_text">Capítulo III</div>
+        <h1 class="chap_name" id="capitulo_3">Conceptos </h1>
+      </div>
+<div class="page">
+	<p><b>Dominio: </b>Es el conjunto de todos los elementos que hacen parte del conjunto de partida y se encuentran relacionados.</p>
+	<p><b>Rango: </b> Es el conjunto de todos los elementos que hacen parte del conjunto de llegada y se encuentran relacionados.
+	</p>
+	<p><b>Imagen: </b>Cada elemento $x$ que hace parte del dominio tiene una relación con un elemento en el conjunto de 
+	llegada a quien se le llama imagen de $x$.
+	</p>
+	<p><b>Preimagen: </b>Cada elemento $y$ que hace parte del rango tiene una relación con un elemento en
+	el conjunto de partida a quien se le llama preimagen de $y$.
+	</p>
+	<p><b>Conjunto de partida:  </b>Se identifica en el diagrama sagital por ser el conjunto del que
+	salen las flechas. En el plano cartesiano, va a determinar el eje $x$. En la tabla va a 
+	ser la columna de la izquierda o de la variable independiente. En la fórmula generalmente se le nombra con la letra $x$. 
+	</p>
+	<p><b>Conjunto de llegada:  </b>Se identifica en el diagrama sagital por ser el conjunto al que 
+	llegan las flechas. En el plano cartesiano, va a determinar el eje $y$. En la tabla va a ser la 
+	columna de la derecha o de la variable dependiente. En la fórmula generalmente se le nombra con la letra $y$.
+	</p>
+</div>
+<div class="page">
+	<p><b>Ejercicios </b></p>
+	<p>Identifique en el siguiente applet los conceptos anteriores. 
+	</p>
+	<p><img class="image_link" onclick="openInteractive('interactivos/Partes_palabras-JS/index.html', '790', '530')" src="interactivos/8.JPG" width="50%"></p>
+	    </p>
+		
+	<p>Identifique en el siguiente applet el dominio y el rango para la función expresada. 
+	</p>	
+	<p><img class="image_link" onclick="openInteractive('interactivos/domyranfuncional.html', '790', '530')" src="interactivos/9.JPG" width="50%"></p>
+	    </p>
+</div>
+	  
+      <!--  -->
+      <div class="page invertcolor" num="" style="background-image: radial-gradient(white, #ecf0f1, #e3e5e7); display:flex; align-items:center; justify-content:center;">
+          <a style="width:50%" target="_blank" href="http://descartes.matem.unam.mx/"><img src="images/general/logo_descartes.svg" width="100%"></a>
+        </div>
+      </div>
+     
+  
+</body>
+</html>

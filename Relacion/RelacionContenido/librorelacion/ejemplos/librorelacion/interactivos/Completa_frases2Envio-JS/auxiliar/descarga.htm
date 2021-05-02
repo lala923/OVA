@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html><head><title>Respuestas</title>
+
+
+
+<meta charset="utf-8">
+<style type="text/css">
+<!--
+-->
+</style>
+<style type="text/css">
+<!--
+-->
+</style>
+<script type="text/javascript">
+      window.addEventListener("message", funcionQueManejaLosMensajes)
+      function funcionQueManejaLosMensajes(evt) {
+         var data = evt.data;
+
+        // se maneja un mensaje del tipo set
+		  if ((data.type === "set")&&(data.name==="tema")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("tema").value = data.value;
+			
+         }
+		 
+		 if ((data.type === "set")&&(data.name==="nota")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("nota").value = data.value;
+			
+         }
+		 
+		 if ((data.type === "set")&&(data.name==="respbuenas")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("respbuenas").value = data.value;
+			
+         }
+		 if ((data.type === "set")&&(data.name==="aprecio")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("aprecio").value = data.value;
+			
+         }
+		 
+		 if ((data.type === "set")&&(data.name==="tiempo")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("tiempo").value = data.value;
+			
+         }
+
+		 
+      }
+</script>
+<script language="JavaScript" type="text/JavaScript">
+function validar(){
+		var err;
+		if (cs656.alumno.value == "Escribe tu nombre y apellidos" || !cs656.alumno.value || cs656.alumno.value == " "){
+		   if(err){
+			    err = err + "\n\n - Debes introducir tu nombre y apellidos";
+			 }else{
+			    err = " - Debes introducir tu nombre y apellidos";
+			 }
+       cs656.alumno.focus();
+		}
+
+
+		
+		if(err){
+			alert(err+"\n\n");
+		}else{
+			ventana=confirm("Para descargar las respuestas debes estar conectado a internet. ¿Deseas continuar?");
+			if (ventana) {
+				cs656.submit();
+				window.parent.postMessage({ type: "set", name: "enviado", value: "1" }, '*');
+				window.parent.postMessage({ type: "update" }, '*');
+				
+			}		
+		}
+}
+
+
+</script>
+<script type="text/javascript">
+function selecciona_value(objInput) {
+    var valor_input = objInput.value;
+    var longitud = valor_input.length;
+
+    if (objInput.setSelectionRange) {
+        objInput.focus();
+        objInput.setSelectionRange (0, longitud);
+    }
+    else if (objInput.createTextRange) {
+        var range = objInput.createTextRange() ;
+        range.collapse(true);
+        range.moveEnd('character', longitud);
+        range.moveStart('character', 0);
+        range.select();
+    }
+}
+</script>  
+<link href="paraenvio.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" topmargin="0" bgcolor="#ffffff" marginheight="0" marginwidth="0" >
+<form action="https://proyectodescartes.org/plantillas/materiales_didacticos/descarga.php" method="post" name="cs656" target="_self" id="cs656">
+  <table align="center" border="0" cellpadding="6" cellspacing="6" width="100%">
+    
+    <tbody>
+	<tr>
+		<br><br>
+		<p align="center" class="titulo"> 
+          
+			<h1>Test de completa frases con tiempo y envío al profesor</h1>
+		</p>
+		
+		<br><br><br>
+	</tr>
+     <tr> 
+      <td colspan="2" valign="top" bgcolor="#A7b7FF" class="recuadro"> 
+        <p align="center" class="titulo"> 
+          <input name="act" type="hidden" id="act" value="SM9">
+          <input name="unidad" type="hidden" id="unidad" value="Unidad  Selección múltiple">
+        <h2>Rellena los siguientes datos para su envío a tu profesor</h2>
+		<br>
+		</p>
+	   </td>
+	 </tr>
+     <tr> 
+      <td colspan="2" valign="top" bgcolor="#A7b7FF" class="recuadro"> 
+        <p align="center" class="titulo"> 
+          <input name="act" type="hidden" id="act" value="cs656">
+          <input name="unidad" type="hidden" id="unidad" value="Unidad  CS656  La migración de las aves">
+        Unidad CS656: La migración de las aves</p>
+        <p align="center"> 
+          <input name="alumno" type="text" id="alumno" value="Escribe tu nombre y apellidos" size="40" onfocus="selecciona_value(this)">
+          &nbsp; 
+               
+          <input name="CS656" type="button" id="CS656" value="Descargar" onClick="javascript:validar();" >
+        </p></td>
+    </tr>
+     <tr> 
+      <td class="textonormal" valign="top"> <p><strong>1.</strong>
+La mayoría de las aves migratorias se reúnen en una zona para después
+migrar en grandes grupos en lugar de individualmente. Este
+comportamiento es el resultado de la evolución. ¿Cuál de las siguientes
+explicaciones científicas describe mejor la evolución de este
+comportamiento en la mayoría de las aves migratorias?</p>
+        <blockquote>
+          <p><strong>1)</strong>
+            <input name="im11a" class="textocampo" id="im11a" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+			<input name="im11b" class="textocampo" id="im11b" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+			<input name="im11c" class="textocampo" id="im11c" size="60" type="text">
+          </p>
+          <p><strong>2)</strong>
+            <input name="im12a" class="textocampo" id="im12a" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input name="im12b" class="textocampo" id="im12b" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input name="im12c" class="textocampo" id="im12c" size="60" type="text">
+          </p>
+          <p><strong>3)</strong>
+            <input name="im13a" class="textocampo" id="im13a" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input name="im13b" class="textocampo" id="im13b" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input name="im13c" class="textocampo" id="im13c" size="60" type="text">
+		  </p>
+          <p><strong>4)</strong>
+            <input name="im14a" class="textocampo" id="im14a" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input name="im14b" class="textocampo" id="im14b" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input name="im14c" class="textocampo" id="im14c" size="60" type="text">
+          </p>
+          </blockquote>
+        <input name="rcorrecta1" id="rcorrecta1" class="titulo" type="hidden">
+		</td>
+      <td class="textonormal" align="center" bgcolor="#e0eaee" valign="middle" width="25%"> 
+        <p>RESPUESTA</p>
+        <p> 
+          <input name="rn1" class="titulo" id="rn1" size="1" type="text">
+        </p>
+        <p>
+          <input name="rc1" id="rc1" class="titulo" type="hidden">
+        </p>
+	  </td>
+    </tr>
+	<tr> 
+      <td colspan="2" class="textonormal" valign="top"> <p><strong>2.</strong>
+Identifica un factor que puede hacer que el recuento de aves
+migratorias que realizan los voluntarios sea impreciso, y explica de
+qué manera ese factor afecta al recuento.</p>
+        <div align="center"> 
+          <textarea name="rn2" cols="60" rows="6" class="respuestas" id="rn2"></textarea>
+        </div></td>
+    </tr>
+    
+    <tr> 
+      <td class="textonormal" valign="top"> <p><strong>3.</strong> 
+          ¿Qué enunciados acerca de la migración de los chorlitos dorados corroboran los mapas?</p>
+        <blockquote>
+          <p><strong>1)</strong>
+            <input name="im31a" class="textocampo" id="im31a" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+			<input name="im31b" class="textocampo" id="im31b" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+			<input name="im31c" class="textocampo" id="im31c" size="60" type="text">
+          </p>
+          <p><strong>2)</strong>
+            <input name="im32a" class="textocampo" id="im32a" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input name="im32b" class="textocampo" id="im32b" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input name="im32c" class="textocampo" id="im32c" size="60" type="text">
+          </p>
+          <p><strong>3)</strong>
+            <input name="im33a" class="textocampo" id="im33a" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input name="im33b" class="textocampo" id="im33b" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input name="im33c" class="textocampo" id="im33c" size="60" type="text">
+		  </p>
+          <p><strong>4)</strong>
+            <input name="im34a" class="textocampo" id="im34a" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input name="im34b" class="textocampo" id="im34b" size="60" type="text"><br>
+			<strong>&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+            <input name="im34c" class="textocampo" id="im34c" size="60" type="text">
+          </p>
+          </blockquote>
+<input name="rcorrecta3" id="rcorrecta3" class="titulo" type="hidden">
+</td>
+      <td class="textonormal" align="center" bgcolor="#e0eaee" valign="middle" width="25%"> 
+        <p>RESPUESTA</p>
+        <p> 
+          <input name="rn3" class="titulo" id="rn3" size="3" type="text">
+        </p>
+        <p>
+          <input name="rc3" id="rc3" class="titulo" type="hidden">
+        </p>
+	  </td>
+    </tr>
+  </tbody></table>
+</form>
+</body></html>

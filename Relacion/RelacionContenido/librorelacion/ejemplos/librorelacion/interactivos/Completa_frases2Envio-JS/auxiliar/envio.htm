@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html><head><title>Respuestas</title>
+
+
+
+<meta charset="utf-8">
+<style type="text/css">
+
+	 body {
+        overflow-y: hidden;
+    }
+<--
+-->
+</style>
+<style type="text/css">
+<!--
+-->
+</style>
+<script type="text/javascript">
+      window.addEventListener("message", funcionQueManejaLosMensajes)
+      function funcionQueManejaLosMensajes(evt) {
+         var data = evt.data;
+		 
+		 // se maneja un mensaje del tipo set
+		  if ((data.type === "set")&&(data.name==="tema")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("tema").value = data.value;
+			
+         }
+		 
+		 if ((data.type === "set")&&(data.name==="nota")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("nota").value = data.value;
+			
+         }
+		 
+		 if ((data.type === "set")&&(data.name==="respbuenas")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("respbuenas").value = data.value;
+			
+         }
+		 if ((data.type === "set")&&(data.name==="aprecio")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("aprecio").value = data.value;
+			
+         }
+		 
+		 if ((data.type === "set")&&(data.name==="tiempo")) {
+         // data.name es el nombre de la variable
+         // data.value es el valor de la variable
+            document.getElementById("tiempo").value = data.value;
+			
+         }
+
+         
+		 
+      }
+</script>
+<script language="JavaScript" type="text/JavaScript">
+function validar(){
+		var err;
+		if (sm9.alumno.value == "Escribe tu nombre y apellidos" || !sm9.alumno.value || sm9.alumno.value == " "){
+		   if(err){
+			    err = err + "\n\n - Debes introducir tu nombre y apellidos";
+			 }else{
+			    err = " - Debes introducir tu nombre y apellidos";
+			 }
+       sm9.alumno.focus();
+		}
+
+		var email = sm9.email.value;
+		
+		if(!isEmailAddress(email)){
+			if(err){
+				err = err + "\n\n - Debes introducir una direcci\u00f3n de correo electr\u00f3nico v\u00e1lida";
+			}else{
+				err = " - Debes introducir una direcci\u00f3n de correo electr\u00f3nico válida";
+			}
+		} 
+		
+		if(err){
+			alert(err+"\n\n");
+		}else{
+			ventana=confirm("Para realizar el envio debes estar conectado a internet. ¿Deseas continuar?");
+			if (ventana) {
+				sm9.submit();
+				window.parent.postMessage({ type: "set", name: "enviado", value: "1" }, '*');
+				window.parent.postMessage({ type: "update" }, '*');
+			}		
+		}
+}
+
+function isEmailAddress(email){
+	var s = email;
+	var filter=/^[A-Za-z][A-Za-z0-9_.]*@[A-Za-z0-9_.]+\.[A-Za-z0-9_.]+[A-za-z]$/;
+	if (s.length == 0 ) return false;
+	if (filter.test(s))
+		return true;
+	else
+		//alert("Ingrese una dirección de correo válida");
+		return false;
+}
+
+//-->
+</script>
+<script type="text/javascript">
+function selecciona_value(objInput) {
+    var valor_input = objInput.value;
+    var longitud = valor_input.length;
+
+    if (objInput.setSelectionRange) {
+        objInput.focus();
+        objInput.setSelectionRange (0, longitud);
+    }
+    else if (objInput.createTextRange) {
+        var range = objInput.createTextRange() ;
+        range.collapse(true);
+        range.moveEnd('character', longitud);
+        range.moveStart('character', 0);
+        range.select();
+    }
+}
+</script>  
+
+<link href="paraenvio.css" rel="stylesheet" type="text/css"></head>
+<body leftmargin="0" topmargin="0" bgcolor="#ecf0f1" marginheight="0" marginwidth="0" style="margin:0;padding:0; overflow:hidden">
+<form action="https://proyectodescartes.org/plantillas/materiales_didacticos/mail.php" method="post" name="sm9" target="_self" id="sm9">
+  <table align="center" border="0" cellpadding="6" cellspacing="6" width="100%">
+    
+    <tbody>
+	<tr>
+		<br><br>
+		<p align="center" class="titulo"> 
+          
+			<h1>Test de completa frases con tiempo y envío al profesor o profesora  </h1>
+		</p>
+		
+		<br><br><br>
+	</tr>
+     <tr> 
+      <td colspan="2" valign="top" bgcolor="#A7b7FF" class="recuadro"> 
+        <p align="center" class="titulo"> 
+          <input name="act" type="hidden" id="act" value="sm9">
+          <input name="unidad" type="hidden" id="unidad" value="Unidad  Completa frases">
+        <h2>Rellena los siguientes datos para su envío</h2>
+		<br>
+		</p>
+        <p align="center"> 
+          <input name="alumno" type="text" id="alumno" value="Escribe tu nombre y apellidos" size="40" onfocus="selecciona_value(this)">
+          &nbsp; </br></br>
+          <input name="email" type="text" id="email" value="Escribe la direcci&oacute;n de correo electr&oacute;nico de tu profesor o profesora" size="55" onfocus="selecciona_value(this)">
+          &nbsp; 
+          <input name="CS656" type="button" id="CS656" value="Enviar" onClick="javascript:validar();" >
+        </p></td>
+    </tr>
+	</tbody>
+</table>
+<p><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</p>
+<table align="center" border="0" cellpadding="6" cellspacing="6" width="100%">
+    
+    <tbody>
+	<tr> 
+		
+      <td class="textonormal" valign="top"> <p>
+
+			<p>Tema:
+            <input name="tema" class="textocampo" id="tema" size="60" type="text"><br>
+			
+          </p>
+		</td>
+	</tr>
+     <tr> 
+      <td class="textonormal" valign="top"> <p>
+
+			<p>Nota:
+            <input name="nota" class="textocampo" id="nota" size="60" type="text"><br>
+			
+          </p>
+		</td>
+	</tr>
+	<tr> 
+      <td class="textonormal" valign="top"> <p>
+		Respuestas buenas:</p>
+        <blockquote>
+			<p>
+            <input name="respbuenas" class="textocampo" id="respbuenas" size="60" type="text"><br>
+			
+          </p>
+		</td>
+	</tr>
+	
+	<tr> 
+      <td class="textonormal" valign="top"> <p>
+			Apreciación:</p>
+        <blockquote>
+			<p>
+            <input name="aprecio" class="textocampo" id="aprecio" size="60" type="text"><br>
+			
+          </p>
+		</td>
+	</tr>
+	
+	<tr> 
+      <td class="textonormal" valign="top"> <p>
+		Tiempo:</p>
+        <blockquote>
+			<p>
+            <input name="tiempo" class="textocampo" id="tiempo" size="60" type="text"><br>
+			
+          </p>
+		</td>
+	</tr>
+	
+    
+  </tbody></table>
+</form>
+</body></html>

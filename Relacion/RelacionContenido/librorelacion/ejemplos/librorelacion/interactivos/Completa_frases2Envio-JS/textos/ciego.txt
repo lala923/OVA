@@ -1,0 +1,2 @@
+'Indica si el test es ciego (no se visualiza la corrección) o no. Para ciego poner 0, para visible poner 1'
+1

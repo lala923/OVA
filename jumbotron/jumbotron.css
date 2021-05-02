@@ -1,0 +1,16 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+body {
+  padding-top: 0rem;
+  font-family:Arial;
+}
+h1{
+	text-shadow: 3px 3px 0px white;
+}
+p{
+	font-size: 20px;
+}
+
+h2{
+	text-align:center;
+}
+

@@ -1,0 +1,6 @@
+'Escribe las frases'	
+'Podemos relacionar los elementos de un conjunto de personas con sus edades respectivas'
+'Podemos asociar los elementos de un conjunto de lapiceros con el color de cada uno'
+'Podemos relacionar los departamentos de Colombia con sus respectivas capitales'
+'Podemos relacionar los elementos de un conjunto de números con la raiz cuadrada de cada uno'
+'Podemos relacionar los elementos de dos conjuntos mediante la regla "...menor que ..."'

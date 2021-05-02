@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes,minimal-ui">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <title>Libro Función Lineal</title>
+
+  <!-- configuración del libro -->
+  <script>
+  window.book_config = {
+    // parámetro que indica si los capítulos, secciones y figura se auto numeran
+    // para que los capítulos se auto numeren deben utilizar la etiqueta <h1>
+    // para que las secciones se auto numeren deben utilizar la etiqueta <h2>
+    auto_numerate_sections_and_figures: true, 
+  }
+  </script>
+
+  <!-- núcleo del libro interactivo -->
+  <link rel="stylesheet" href="../../css/style.css" type="text/css">
+  <script type="text/javascript" src="../../js/book.js" charset="utf-8"></script>
+  
+  <!-- personalización del usuario -->
+  <link rel="stylesheet" href="extra/fonts.css" type="text/css">
+  <link rel="stylesheet" href="extra/style.css" type="text/css">
+
+  <!-- inclusión de la biblioteca KaTex -->
+  <link rel="stylesheet" type="text/css" href="extra/katex/katex.min.css"/>
+  <script src="extra/katex/katex.min.js"></script>
+  <script src="extra/katex/auto-render.min.js" ></script>
+
+  <!-- Opcional en caso de requerir formulas químicas -->
+  <script src="extra/katex/mhchem.min.js"></script>
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}, {left: "\\[", right: "\\]", display: true}, {left: "\\(", right: "\\)", display: false} ]
+    });
+  });
+  </script>
+</head>
+
+<body>
+  <div id="book_loader_container"><div id="book_loader"></div></div>
+
+  <div id="book_container">
+    <div id="btn_back_page"></div>
+    <div id="btn_next_page"></div>
+    <button id="go_to_table_of_content"></button>
+    
+    <button id="btn_config"></button>
+    <div id="config_options">
+      <div id="dark_light_mode"></div>
+    </div>
+
+    <!-- si este elemento no esta presente, el botón de la tabla de contenido lleva a la primera página con un elemento class="toc_link" -->
+    <div id="table_of_content"></div>
+
+    <div id="pages_container">
+      <!--  -->
+      <div class="page" style="background-color:transparent;">
+      </div>
+
+      <!--  -->
+      <div class="page invertcolor" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada.svg);">
+        <div class="cover_title">Función Lineal</div>
+
+        <div class="cover_subtitle">Libro interactivo</div>
+      </div>
+
+      <!--  -->
+      <div class="page" style="display:flex; align-items:center; justify-content:center;">
+        <a style="width:50%" target="_blank" href="http://descartes.matem.unam.mx/"><img src="images/general/logo_descartes.svg" width="100%"></a>
+      </div>
+
+      <!--  -->
+      <!-- init-page-num="true" es un parámetro que indica que a partir de esta página comienza la numeración -->
+      <!-- inicialmente los números de las páginas se numeran con numerales romanos -->
+      <!-- num="" es un parámetro que indica que esta página no lleva numeración visible -->
+      <!--  -->
+      <div class="page" style="text-align:center; font-size:120%;" init-page-num="true" num="">
+       
+      </div>
+
+      <!--  -->
+      <div class="page" num="">
+        <p>
+          Título de la obra:
+          <br> 
+          Función Lineal
+        </p>
+        <br>
+
+        <p>
+          Autor:
+          <br> 
+          Laura Reinoso
+        </p>
+        <br><br>
+
+        <p>
+          Código JavaScript para el libro: <a href="https://github.com/jlongi/libro_interactivo" target="_blank">Joel Espinosa Longi</a>, <a href="https://www.matem.unam.mx/" target="_blank">IMATE</a>, UNAM.
+          <br> 
+          Recursos interactivos: <a href="http://descartes.matem.unam.mx/" target="_blank">DescartesJS</a>
+          <br> 
+          Fuentes: <a href="https://fonts.google.com/specimen/Lato" target="_blank">Lato</a> y <a href="https://fonts.google.com/specimen/Ubuntu+Mono" target="_blank">UbuntuMono</a>
+          <br>
+          Fórmulas matemáticas: <a href="https://katex.org/" target="_blank">$\KaTeX$</a>
+        </p>
+        <br>
+
+        
+        <br><br>
+
+        <p>
+          <p>LICENCIA</p>
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank"><img src="images/general/by-nc-sa.svg" style="height:1.75em; margin-right:0.75em;"></a>
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank">Creative Commons Attribution License 4.0</a>.
+        </p>
+      </div>
+
+      <!--  -->
+      <div class="page">
+        <h2>Tabla de contenido</h2>
+
+       <!-- con esto se agrega una entrada en la tabla de contenido,
+        href="#prefacio" indica una referencia a una elemento html con 
+        el parámetro id="prefacio", automáticamente se busca está referencia
+        y se agrega el título correspondiente y la página donde se encuentra -->
+          
+     
+
+        <div class="toc_link" href="#capitulo_1"></div>
+        <div class="toc_link" href="#capitulo_2"></div>
+		<div class="toc_link" href="#capitulo_3"></div>
+		<div class="toc_link" href="#capitulo_4"></div>
+      </div>
+  
+      <!-- Una página en blanco y sin numeración visible -->
+      <!--  -->
+      <div class="page" num=""></div>
+
+
+
+      <!--  -->
+      <!-- num-type-arabic="true" es un parámetro que indica que a partir de esta página la numeración utilizara numerales arábigos -->
+      <!--  -->
+     
+
+      <!--  -->
+      <!-- Un nuevo capitulo -->
+      <!--  -->
+      <div class="page invertcolor" num="" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada_capitulos.svg);">
+        <div class="chap_text">Capítulo I</div>
+        <h1 class="chap_name" id="capitulo_1">Definición de Función Lineal</h1>
+      </div>
+ 
+  
+
+      <!--  -->
+      <div class="page">
+			<h1>Definición de Función Lineal</h1>
+			<p>Son funciones cuyo dominio y rango son un subconjunto del conjunto de los Reales.</p>
+			<p>En ellos la tasa de variación es constante</p>
+			
+			<p>Se puede representar matemáticamente mediante la fórmula: $f(x)=mx+b$ ; con $m$ , $b$ pertenecientes a los
+			números Reales.
+			</p>
+			<p> También se puede representar matemáticamente mediante la ecuación: $y=mx+b$ ; con $m$ , $b$ pertenecientes a los
+			números Reales.
+			</p>
+			<b>Ejemplo</b>
+			<p> A continuación se observa diferentes funciones lineales en el gif, representadas en un plano cartesiano:</p>
+			<img src="images/funcionlineal.gif" width="80%">
+			
+			
+      </div>
+
+        
+     
+
+      <div class="page invertcolor" num="" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada_capitulos.svg);">
+        <div class="chap_text">Capítulo II</div>
+        <h1 class="chap_name" id="capitulo_2">Conceptos</h1>
+      </div>
+
+      <!--   -->
+      <div class="page">
+        <h1>Conceptos</h1>
+		
+		<div class="note">
+		  <p> <b>Nota</b></p>
+		<p>Recordemos que las funciones son un tipo de relación especial. 
+		Por lo tanto, los conceptos clave siguen siendo iguales</p>
+		</div>
+			<p><b>Dominio: </b>Es el conjunto de todos los elementos que hacen parte del conjunto de partida y se encuentran relacionados.
+		<p><b>Rango:</b> Es el conjunto de todos los elementos que hacen parte del conjunto de llegada y se encuentran relacionados.
+		</p>
+		<p><b>Imagen: </b>Cada elemento $x$ que hace parte del dominio tiene una relación con un elemento en el conjunto de llegada a quien se le llama imagen de $x$.
+		</p>
+		<p><b>Preimagen: </b>Cada elemento $y$ que hace parte del rango tiene una relación con un elemento en el conjunto de partida a quien se le llama preimagen de $y$.
+		</p>
+		<p><b>Conjunto de partida:  </b>Se identifica en el diagrama sagital por ser el conjunto
+		del que salen las flechas. En el plano cartesiano, va a determinar el eje $x$. 
+		En la tabla va a ser la columna de la izquierda o de la variable independiente. 
+		En la fórmula generalmente se le nombra con la letra $x$. 
+		</p>
+		<p><b>Conjunto de llegada:  </b>Se identifica en el diagrama sagital por ser 
+		el conjunto al que llegan las flechas. En el plano cartesiano, va a determinar el eje $y$.
+		En la tabla va a ser la columna de la derecha o de la variable dependiente. 
+		En la fórmula generalmente se le nombra con la letra $y$.
+		</p>
+</div>		
+		
+ <div class="page invertcolor" num="" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada_capitulos.svg);">
+        <div class="chap_text">Capítulo III</div>
+        <h1 class="chap_name" id="capitulo_3"> Identificación de una Función Lineal</h1>
+      </div>		
+
+<div class="page">		
+		<h2>¿Cómo saber que una función es lineal o no?</h2>
+		<p>Dependiendo de la representación que tengas, o de los datos suministrados, 
+		o de la correcta interpretación de una situación puedes identificar que una función
+		 es o no lineal si las variables a relacionar son $x$ y $y$ , y la tasa de variación 
+		 $∆y \over ∆x$  se mantiene constante.</p>
+		<b>Ejemplo 1</b>
+		<p>Un carro realiza el movimiento descrito a continuación por el applet.</p>
+		<p> Haga clic en los botones para interactuar con el applet.</p>
+		<div class="interactive" width="425" height="500" scale="70%" src="interactivos/carro.html"></div>
+
+</div>
+<div class="page">
+		<p>
+Se requiere determinar si las variables tiempo y distancia recorrida se relacionan mediante la función lineal y si es así determinar su ecuación.
+</p>
+<p><b>Pasos</b></p>
+<p>
+1.	Se determina quien es la variable dependiente y cual la independiente, en este caso el 
+tiempo es independiente y la posición es la variable dependiente. Ambas variables pertenecen al 
+conjunto de los números reales positivos.</p>
+<p>2.	Se realiza una tabla con algunos datos.</p>
+
+<center><p><table>
+
+  <tr>
+    <td>Tiempo(s)</td>
+    <td>Posición(m)</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>4</td>
+  </tr>
+ <tr>
+    <td>3</td>
+    <td>6</td>
+  </tr>
+   <tr>
+    <td>6</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>10</td>
+  </tr>
+</table></p></center>
+	 <p>3.	Se toman varias parejas de puntos y se determina su tasa de variación. 
+    Si es la misma entonces la función es lineal y la tasa de variación
+ será la pendiente de la recta.</p>
+		<p> Para este caso la tasa de variación es:</p>
+		<p> $$Δx \over Δt $$ </p>
+		<p>Siendo  $Δx$ como el cambio en la posición y $Δt$ como el 
+		cambio en el tiempo  </p>
+ 
+
+
+</div>
+<div class="page">
+<p> Analicemos las parejas (0,4) y (3,6). 
+</p>
+<p> $${Δx \over Δt} =  {6-4 \over 3-0 }$$</p>
+<p> $${Δx \over Δt} =  {2 \over 3 }$$</p>
+<p>Analicemos las parejas (3,6) y (6,8)
+<p> $${Δx \over Δt} =  {8-6 \over 6-3 }$$</p>
+<p> $${Δx \over Δt} =  {2 \over 3 }$$</p>
+<p> Analicemos las parejas  Parejas (6,8) y (9,10)
+<p> $${Δx \over Δt} =  {10-8 \over 9-6 }$$</p>
+<p> $${Δx \over Δt} =  {2 \over 3 }$$</p>
+<p>En estas parejas de puntos y en todas las posibles la tasa de cambio es la misma, 
+por lo tanto, la función es lineal y su pendiente es $m=2/3$</p>
+
+<p>Para encontrar la función lineal que mejor se adapta a los puntos, vamos a usar la ecuación 
+punto pendiente, para ello cualquier punto sirve.</p>
+<p>El punto escogido es $(0,4)$ y la pendiente $m=2/3$ . Para la ecuación siguiente $(x_1, y_1)= (0,4)$
+de donde $x_1=0$ y $y_1=4$.
+</p>
+      </div>
+	  
+<div class="page">	 
+<p> $${y- y_1} =  {m (x-x_1)}$$</p>
+<p> $${y- 4} =  { {2 \over 3} (x-0)}$$</p>
+<p> $${y- 4} =  { {2 \over 3} x}$$</p>
+<p> $${y} =  { {2 \over 3}x+4}$$</p>
+<p> <b>Ejemplo 2</b></p>
+<p>En este ejemplo vamos a analizar si la reproducción de 
+conejos dada en el siguiente gif puede modelarse mediante una función lineal.</p> 
+<p><img src="images/conejo.gif" width="100%"></p>
+
+</div>	  
+<div class="page">
+<p>Paso 1 : El mes es una variable independiente y el numero de conejos 
+una variable dependiente.</p>
+<p>Paso 2: Se determina que la relación es una función porque cada mes 
+tiene un 1 solo número de conejos asociados.</p>
+<p>Paso 3. Se realiza una tabla de datos</p>
+<center><table>
+
+  <tr>
+    <td>Mes    </td>
+    <td>Número de conejos</td>
+  </tr>
+  <tr>
+    <td>0</td>
+    <td>2</td>
+  </tr>
+ <tr>
+    <td>1</td>
+    <td>2</td>
+  </tr>
+   <tr>
+    <td>2</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>6</td>
+  </tr>
+</table></center><br>
+<p>Paso 4: Se toman parejas de puntos y se calcula la tasa de variación.</p>
+<p> Para este caso la tasa de variación es:</p>
+		<p> $$Δc \over Δt $$ </p>
+		<p>Siendo  $Δc$ como el cambio en el número de conejos y $Δt$ como el 
+		cambio de mes  </p>
+		<p>Analicemos las parejas (0,2) y (1,2)
+<p> $${Δx \over Δt} =  {2-2 \over 1-0 }$$</p>
+<p> $${Δx \over Δt} =  {0 \over 1 }$$</p>
+<p> $${Δx \over Δt} =  {0}$$</p>
+</div>	  
+<div class="page">  
+<p>Analicemos las parejas (1,2) y (2,4)
+<p> $${Δx \over Δt} =  {4-2 \over 2-1 }$$</p>
+<p> $${Δx \over Δt} =  {2 \over 1 }$$</p>
+<p> $${Δx \over Δt} =  {2}$$</p>
+<p>Se dan tasas de variación diferente por lo tanto la función no es lineal. </p>
+<p>Se dan tasas de variación diferente por lo tanto la función no es lineal. </p><br>
+ </div>
+ <div class="page invertcolor" num="" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada_capitulos.svg);">
+        <div class="chap_text">Capítulo IV</div>
+        <h1 class="chap_name" id="capitulo_4"> Función lineal y ecuación de la recta</h1>
+      </div>	
+
+<div class="page">
+<h1>Función lineal y ecuación de la recta</h1>
+<p>Todas las funciones lineales sin importar el tipo de 
+conjunto numérico se pueden expresar mediante la fórmula $f(x)=mx+b$. 
+$m$ se denominará pendiente, y $b$ se denomina intercepto de la recta con el eje $y$.</p>
+<p>Si los conjuntos de partida y de llegada son los números reales, la representación en el plano
+ será una línea recta. En otro caso, la representación en el plano será mediante unos puntos, que, 
+ si se llegaran a unir, darían lugar a una línea recta.</p>
+ 
+<h1> 5. ¿Cuándo debo encontrar la ecuación de una función lineal?</h1>
+<p>Después de corroborar que te encuentras frente a una función lineal, y tener claro la variable dependiente 
+y la independiente, y la pendiente (tasa de cambio) . </p>
+
+<h1> 6.Función lineal y pendiente de una recta.</h1>
+<p>Si la pendiente de una recta es cero, la función es constante.</p>
+<p>Si la pendiente es negativa, la función es estrictamente decreciente.</p>
+<p>Si la pendiente es positiva, la función es estrictamente creciente.
+</p>
+      </div>	
+
+<div class="page">
+<h1> 7.Ecuación explícita de una recta</h1>
+<p>Dados dos puntos $(x_1, y_1)$ y $(x_2, y_2)$ es posible encontrar la ecuación de la recta mediante las fórmula</p><br> 
+<p> $${m} =  {(y_2-y_1)\over(x_2-x_1) }$$</p>
+<p> $${y- y_1} =  {m (x-x_1)}$$</p>
+</div>
+      <!--  -->
+      <div class="page invertcolor" num="" style="background-image: radial-gradient(white, #ecf0f1, #e3e5e7); display:flex; align-items:center; justify-content:center;">
+          <a style="width:50%" target="_blank" href="http://descartes.matem.unam.mx/"><img src="images/general/logo_descartes.svg" width="100%"></a>
+        </div>
+      </div>
+     </div>
+</body>
+</html>

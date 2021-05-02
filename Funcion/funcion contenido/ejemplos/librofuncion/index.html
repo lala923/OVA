@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes,minimal-ui">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <title>Libro Función</title>
+
+  <!-- configuración del libro -->
+  <script>
+  window.book_config = {
+    // parámetro que indica si los capítulos, secciones y figura se auto numeran
+    // para que los capítulos se auto numeren deben utilizar la etiqueta <h1>
+    // para que las secciones se auto numeren deben utilizar la etiqueta <h2>
+    auto_numerate_sections_and_figures: true, 
+  }
+  </script>
+
+  <!-- núcleo del libro interactivo -->
+  <link rel="stylesheet" href="../../css/style.css" type="text/css">
+  <script type="text/javascript" src="../../js/book.js" charset="utf-8"></script>
+  
+  <!-- personalización del usuario -->
+  <link rel="stylesheet" href="extra/fonts.css" type="text/css">
+  <link rel="stylesheet" href="extra/style.css" type="text/css">
+
+  <!-- inclusión de la biblioteca KaTex -->
+  <link rel="stylesheet" type="text/css" href="extra/katex/katex.min.css"/>
+  <script src="extra/katex/katex.min.js"></script>
+  <script src="extra/katex/auto-render.min.js" ></script>
+
+  <!-- Opcional en caso de requerir formulas químicas -->
+  <script src="extra/katex/mhchem.min.js"></script>
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [ {left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}, {left: "\\[", right: "\\]", display: true}, {left: "\\(", right: "\\)", display: false} ]
+    });
+  });
+  </script>
+</head>
+
+<body>
+  <div id="book_loader_container"><div id="book_loader"></div></div>
+
+  <div id="book_container">
+    <div id="btn_back_page"></div>
+    <div id="btn_next_page"></div>
+    <button id="go_to_table_of_content"></button>
+    
+    <button id="btn_config"></button>
+    <div id="config_options">
+      <div id="dark_light_mode"></div>
+    </div>
+
+    <!-- si este elemento no esta presente, el botón de la tabla de contenido lleva a la primera página con un elemento class="toc_link" -->
+    <div id="table_of_content"></div>
+
+    <div id="pages_container">
+      <!--  -->
+      <div class="page" style="background-color:transparent;">
+      </div>
+
+      <!--  -->
+      <div class="page invertcolor" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada.svg);">
+        <div class="cover_title">Función</div>
+
+        <div class="cover_subtitle">Libro interactivo</div>
+      </div>
+
+      <!--  -->
+      <div class="page" style="display:flex; align-items:center; justify-content:center;">
+        <a style="width:50%" target="_blank" href="http://descartes.matem.unam.mx/"><img src="images/general/logo_descartes.svg" width="100%"></a>
+      </div>
+
+      <!--  -->
+      <!-- init-page-num="true" es un parámetro que indica que a partir de esta página comienza la numeración -->
+      <!-- inicialmente los números de las páginas se numeran con numerales romanos -->
+      <!-- num="" es un parámetro que indica que esta página no lleva numeración visible -->
+      <!--  -->
+      <div class="page" style="text-align:center; font-size:120%;" init-page-num="true" num="">
+       
+      </div>
+
+      <!--  -->
+      <div class="page" num="">
+        <p>
+          Título de la obra:
+          <br> 
+          Función
+        </p>
+        <br>
+
+        <p>
+          Autor:
+          <br> 
+          Laura Reinoso
+        </p>
+        <br><br>
+
+        <p>
+          Código JavaScript para el libro: <a href="https://github.com/jlongi/libro_interactivo" target="_blank">Joel Espinosa Longi</a>, <a href="https://www.matem.unam.mx/" target="_blank">IMATE</a>, UNAM.
+          <br> 
+          Recursos interactivos: <a href="http://descartes.matem.unam.mx/" target="_blank">DescartesJS</a>
+          <br> 
+          Fuentes: <a href="https://fonts.google.com/specimen/Lato" target="_blank">Lato</a> y <a href="https://fonts.google.com/specimen/Ubuntu+Mono" target="_blank">UbuntuMono</a>
+          <br>
+          Fórmulas matemáticas: <a href="https://katex.org/" target="_blank">$\KaTeX$</a>
+        </p>
+        <br>
+
+        
+        <br><br>
+
+        <p>
+          <p>LICENCIA</p>
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank"><img src="images/general/by-nc-sa.svg" style="height:1.75em; margin-right:0.75em;"></a>
+          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank">Creative Commons Attribution License 4.0</a>.
+        </p>
+      </div>
+
+      <!--  -->
+      <div class="page">
+        <h2>Tabla de contenido</h2>
+
+       <!-- con esto se agrega una entrada en la tabla de contenido,
+        href="#prefacio" indica una referencia a una elemento html con 
+        el parámetro id="prefacio", automáticamente se busca está referencia
+        y se agrega el título correspondiente y la página donde se encuentra -->
+          
+     
+
+        <div class="toc_link" href="#capitulo_1"></div>
+
+        <div class="toc_link" href="#capitulo_2"></div>
+		<div class="toc_link" href="#idfunciones"></div>
+      </div>
+  
+      <!-- Una página en blanco y sin numeración visible -->
+      <!--  -->
+      <div class="page" num=""></div>
+
+
+
+      <!--  -->
+      <!-- num-type-arabic="true" es un parámetro que indica que a partir de esta página la numeración utilizara numerales arábigos -->
+      <!--  -->
+     
+
+      <!--  -->
+      <!-- Un nuevo capitulo -->
+      <!--  -->
+      <div class="page invertcolor" num="" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada_capitulos.svg);">
+        <div class="chap_text">Capítulo I</div>
+        <h1 class="chap_name" id="capitulo_1">Definición de Función</h1>
+      </div>
+ 
+  
+
+      <!--  -->
+      <div class="page">
+			<h1>Definición de Función</h1>
+			<p>Una función de un conjunto A en otro conjunto B, es una relación que cumple estas dos propiedades.
+			</p>
+			<p>1.	Todo elemento de A tiene una imagen en B.</p>
+			<p>2.	Cada elemento de A tiene UNA y SOLO UNA imagen en B</p>
+			<b>Ejemplo</b>
+			<p> A continuación se observa diferentes funciones en el gif, representadas en un plano cartesiano:</p>
+			<img src="images/funcion.gif" width="100%">
+			
+			
+      </div>
+
+        
+     
+
+      <div class="page invertcolor" num="" style="margin:0; padding:0; background-size:contain; background-image:url(images/general/portada_capitulos.svg);">
+        <div class="chap_text">Capítulo II</div>
+        <h1 class="chap_name" id="capitulo_2">Conceptos</h1>
+      </div>
+
+      <!--   -->
+      <div class="page">
+        <h1>Conceptos</h1>
+		
+		<div class="note">
+		  <p>
+		  <b>Nota</b></p>
+		<p>Los conceptos abordados aquí son exactamente los mismos que los de las relaciones.</p>
+		<p>Aunque en las funciones siempre se cumple que el dominio y el conjunto de partida tienen
+		exactamente los mismos elementos.</p>
+		<p>Además los elementos del dominio se relacionan a lo sumo con un elemento del conjunto de llegada.
+		</p>
+		</div>
+			<p><b>Dominio: </b>Es el conjunto de todos los elementos que hacen parte del conjunto de partida y se encuentran relacionados.
+		<p><b>Rango:</b> Es el conjunto de todos los elementos que hacen parte del conjunto de llegada y se encuentran relacionados.
+		</p>
+		<p><b>Imagen: </b>Cada elemento $x$ que hace parte del dominio tiene una relación con un elemento en el conjunto de llegada a quien se le llama imagen de $x$.
+		</p>
+		<p><b>Preimagen: </b>Cada elemento $y$ que hace parte del rango tiene una relación con un elemento en el conjunto de partida a quien se le llama preimagen de $y$.
+		</p>
+		<p><b>Conjunto de partida:  </b>Se identifica en el diagrama sagital por ser el conjunto
+		del que salen las flechas. En el plano cartesiano, va a determinar el eje $x$. 
+		En la tabla va a ser la columna de la izquierda o de la variable independiente. 
+		En la fórmula generalmente se le nombra con la letra $x$. 
+		</p>
+		</div>
+		<div class="page">
+		<p><b>Conjunto de llegada:  </b>Se identifica en el diagrama sagital por ser 
+		el conjunto al que llegan las flechas. En el plano cartesiano, va a determinar el eje $y$.
+		En la tabla va a ser la columna de la derecha o de la variable dependiente. 
+		En la fórmula generalmente se le nombra con la letra $y$.
+		</p>
+		<h2 id="idfunciones">Identificación de funciones</h2>
+		<p>
+		Con la definición de función es 
+		posible determinar cuando una relación es función y cuándo no
+		 lo es. Te invitamos a realizar las actividades dadas a continuación</p>	
+		 <p>
+		 Debes hacer clic sobre la imagen.</p>	
+		 <img class="image_link" onclick="openInteractive('interactivos/pruebarecta.html', '800', '700')" 
+		 src="images/1.jpg" width="90%">
+		 
+      </div>
+<div class="page">
+		 <p>
+		 Esta es la segunda y última actividad. De nuevo has clic sobre la imagen.</p>	
+		 <img class="image_link" onclick="openInteractive('interactivos/Seleccion_multiple4/index.html', '790', '530')" 
+		 src="images/2.jpg" width="90%">
+		 
+      </div>
+	  
+      <!--  -->
+      <div class="page invertcolor" num="" style="background-image: radial-gradient(white, #ecf0f1, #e3e5e7); display:flex; align-items:center; justify-content:center;">
+          <a style="width:50%" target="_blank" href="http://descartes.matem.unam.mx/"><img src="images/general/logo_descartes.svg" width="100%"></a>
+        </div>
+      </div>
+     </div>
+</body>
+</html>
