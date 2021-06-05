@@ -1,0 +1,7 @@
+3
+'Países de Europa'
+'Países de América'
+'Sustantivos comunes'
+'Sustantivos propios'
+'Sustantivo masculino'
+'Sustantivo femenino'
